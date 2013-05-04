@@ -2,7 +2,7 @@
 
 Creemos que una mejor industria TI puede ayudar al desarrollo del país y de la región, entregando a todo el ecosistema económico mejores herramientas, más automatización, mejores sistemas y mayor inteligencia. El primer paso en esta dirección es alejarnos del mito de que los plazos incumplidos, los presupuestos que se duplican y los sistemas poco usables y plagados de errores son parte de la industria TI.
 
-Puedes ver el sitio funcionando temporalmente aquí: [http://dev.estudiovolta.com/manifiesto/](http://dev.estudiovolta.com/manifiesto/)
+Puedes ver el sitio funcionando temporalmente aquí: [http://manifies.to](http://manifies.to)
 
 ## Getting Started
 
