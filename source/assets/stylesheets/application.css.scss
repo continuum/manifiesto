@@ -77,45 +77,11 @@ body {
 
 // Set sprite and mixin for images
 $icons-layout:   smart;
-$icons:          sprite-map("icons/*.png");
 
 @mixin icon($name) {
   @include sprite-dimensions($icons,$name);
   @include sprite-background-position($icons,$name);
 }
-
-
-
-// Red icon
-.head, .big-gear, .small-gear {
-  display: block;
-  background-color: transparent;
-  background-image: $icons;
-  background-repeat: no-repeat;
-  position: absolute;
-}
-.head {
-  @include icon('head');
-  position: relative;
-  margin: 0 auto;
-}
-.small-gear {
-  @include icon('small_gear');
-  top: 41px;
-  left: 77px;
-}
-.big-gear {
-  @include icon('big_gear');
-  top: 57px;
-  left: 55px;
-}
-
-
-
-
-
-
-
 
 // Base design styles
 hr {
@@ -306,15 +272,3 @@ nav {
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
