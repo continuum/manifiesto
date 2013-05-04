@@ -19,10 +19,7 @@ Puedes ver el sitio funcionando temporalmente aquí: [http://dev.estudiovolta.co
     $ bundle exec middleman server
 
 
-## Authors
+## Créditos
 
-**Leo Soto** - Manifiesto
-+ [https://github.com/leosoto](https://github.com/leosoto)
-
-**Cristian Ferrari** - Sitio web
+**Cristian Ferrari** - Diseño y sitio web
 + [https://github.com/cristianferrarig](https://github.com/cristianferrarig)
