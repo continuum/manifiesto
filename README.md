@@ -19,6 +19,10 @@ Puedes ver el sitio funcionando temporalmente aquí: [http://dev.estudiovolta.co
     $ bundle exec middleman server
 
 
+* Deploy as github-pages:
+
+    $ rake deploy
+
 ## Créditos
 
 **Cristian Ferrari** - Diseño y sitio web
