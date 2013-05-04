@@ -12,7 +12,7 @@ end
 
 
 # Default encoding
-Encoding.default_external = 'utf-8'
+# Encoding.default_external = 'utf-8'
 set :default_encoding, 'utf-8'
 
 
