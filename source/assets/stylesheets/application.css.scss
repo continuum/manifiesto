@@ -1,6 +1,7 @@
 //
 // Author: Cristian Ferrari | @energettico
 // Author URI: http://www.continuum.com/
+// Email: cristianferrarig@gmail.com
 // Version: 1.0
 // Copyright (c) 2012 Continuum
 //
@@ -18,12 +19,35 @@
 @import "typography";
 @import "animation";
 
-// Set box-sizing globally to handle padding and border widths
-* { @include box-sizing(border-box); }
 
+
+// Set box-sizing globally to handle padding and border widths.
+* {
+  @include box-sizing(border-box);
+}
+
+
+
+
+// Set selection color for modern browsers.
+::selection {
+  background-color: lighten($global-theme-color,45%);
+  border: 1px solid lighten($global-theme-color,15%);
+  outline: #00FF00 dotted thick;
+}
+::-moz-selection {
+  background-color: lighten($global-theme-color,45%);
+  border: 1px solid lighten($global-theme-color,15%);
+  outline: 1px solid lighten($global-theme-color,15%);
+}
+
+
+
+// Disable text selection on some elements.
+nav ,
 #open_nav,
-header i,
-header p {
+.head,
+header p, {
   @include user-select(none);
 }
 
@@ -33,6 +57,9 @@ html {
   font-size: $global-font-size;
   line-height: $global-line-height;
 }
+
+
+
 
 // Default body styles
 body {
@@ -46,6 +73,9 @@ body {
   font-style: $global-font-style;
 }
 
+
+
+// Set sprite and mixin for images
 $icons-layout:   smart;
 $icons:          sprite-map("icons/*.png");
 
@@ -54,6 +84,9 @@ $icons:          sprite-map("icons/*.png");
   @include sprite-background-position($icons,$name);
 }
 
+
+
+// Red icon
 .head, .big-gear, .small-gear {
   display: block;
   background-color: transparent;
@@ -61,7 +94,6 @@ $icons:          sprite-map("icons/*.png");
   background-repeat: no-repeat;
   position: absolute;
 }
-
 .head {
   @include icon('head');
   position: relative;
@@ -78,11 +110,14 @@ $icons:          sprite-map("icons/*.png");
   left: 55px;
 }
 
-body {
-  border-top: 5px solid #000;
-  text-align: center;
-}
 
+
+
+
+
+
+
+// Base design styles
 hr {
   width: 100px;
   margin: 0 auto;
@@ -100,6 +135,7 @@ hr {
   }
 }
 
+// Mobile open navigation button
 #open_nav {
   position: absolute;
   top: 20px;
@@ -110,12 +146,19 @@ hr {
   display: none;
 }
 
+// Global styles
+body {
+  border-top: 5px solid #000;
+  text-align: center;
+}
+
 header, section {
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 1.4em;
 }
 
+// Header styles
 header {
   padding-top: 6em;
   i.icon-pencil {
@@ -143,6 +186,7 @@ header {
   }
 }
 
+// Content styles
 section {
   padding-top: 5em;
   dl {
@@ -156,16 +200,17 @@ section {
   dd {
     position: relative;
     font-size: 1.35em;
-    margin-bottom: 2em;
+    margin-bottom: 3.5em;
     color: #777;
     line-height: 1;
     &:after {
       font-family: $global-font-mono;
       content: '*';
       display: block;
-      position: relative;
+      position: absolute;
       margin: 0 auto;
-      top: 1.3em;
+      top: 2.5em;
+      left: 50%;
       color: #DDD;
     }
     &:last-child:after {
@@ -178,7 +223,7 @@ section {
   }
 }
 
-
+// Nav styles
 nav {
   font-family: $global-font-sans;
   text-align: right;
@@ -210,6 +255,9 @@ nav {
 }
 
 
+
+
+// Mobile styles
 @media screen #{$to_middle} {
   html {
     font-size: $global-font-size - 6;
@@ -218,7 +266,6 @@ nav {
   #open_nav {
     display: block;
   }
-
 
   header {
     padding-top: 4.5em;

@@ -1,19 +1,27 @@
+# Manifiesto por una mejor industria TI
+
+Creemos que una mejor industria TI puede ayudar al desarrollo del país y de la región, entregando a todo el ecosistema económico mejores herramientas, más automatización, mejores sistemas y mayor inteligencia. El primer paso en esta dirección es alejarnos del mito de que los plazos incumplidos, los presupuestos que se duplican y los sistemas poco usables y plagados de errores son parte de la industria TI.
+
+
 ## Getting Started
 
 * Clone and init working directory
 
-		$ git clone git@github.com:continuum/manifiesto.git
-		$ cd manifiesto
-
-
-* Create gemset and rvmrc
-
-		$ rvm --create --rvmrc 1.9.3@middleman
-		$ rvm rvmrc trust
+    $ git clone git@github.com:continuum/manifiesto.git
+    $ cd manifiesto
+    $ rvm rvmrc trust
 
 
 * Install middleman gem:
 
-		$ gem install middleman
-		$ bundle install
-		$ bundle exec middleman server
+    $ bundle install
+    $ bundle exec middleman server
+
+
+## Authors
+
+**Leo Soto** - Manifiesto
++ [https://github.com/leosoto](https://github.com/leosoto)
+
+**Cristian Ferrari** - Sitio web
++ [https://github.com/cristianferrarig](https://github.com/cristianferrarig)
