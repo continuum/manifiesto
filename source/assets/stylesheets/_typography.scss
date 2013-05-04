@@ -1,0 +1,306 @@
+//
+// Typography Variables
+//
+
+// We use these to control header font styles
+$header-font-weight:                   bold   !default;
+$header-font-style:                    normal !default;
+$header-line-height:                   1.4    !default;
+$header-font-family:                   false  !default;
+$header-font-color:                    false  !default;
+$header-text-rendering:                $global-text-rendering !default;
+$header-small-uppercase:               false !default;
+
+// We use these to control header font sizes
+$h1-font-size:                         $global-font-size * 2.75  !default;
+$h2-font-size:                         $global-font-size * 2.375 !default;
+$h3-font-size:                         $global-font-size * 1.75  !default;
+$h4-font-size:                         $global-font-size * 1.5   !default;
+$h5-font-size:                         $global-font-size * 1.125 !default;
+$h6-font-size:                         $global-font-size         !default;
+
+// These control how subheaders are styled.
+$subheader-font-color:                 lighten($global-font-color, $global-color-factor) !default;
+$subheader-font-weight:                300  !default;
+$subheader-bottom-margin:              .5em !default;
+
+// A general <small> styling
+$small-font-size:                      85% !default;
+
+// A general p.lead styling
+$lead-font-size:                       20px !default;
+$lead-line-height:                     1.6 !default;
+
+// We use these to style paragraphs
+$paragraph-aside-font-size:            emCalc(14px) !default;
+$paragraph-aside-line-height:          1.35 !default;
+$paragraph-aside-font-style:           italic !default;
+
+// We use these to style <code> tags
+$code-color:                           darken($global-danger-color, 15%) !default;
+$code-font-family:                     $global-font-mono !default;
+$code-font-weight:                     bold !default;
+
+// We use these to style the <hr> element
+$hr-border-width:                      1px !default;
+$hr-border-style:                      solid !default;
+$hr-border-color:                      #ddd !default;
+
+// We use these to style lists
+$list-style-position:                  outside !default;
+$list-side-margin:                     emCalc(20px) !default;
+$list-item-margin:                     emCalc(5px) !default;
+$list-inline-item-padding:             0 emCalc(5px) !default;
+$definition-list-header-weight:        bold !default;
+$definition-list-header-margin-bottom: .3em !default;
+$definition-list-margin-bottom:        emCalc(12px) !default;
+
+// We use these to style blockquotes
+$blockquote-font-size:                 20px !default;
+$blockquote-font-color:                lighten($global-font-color, $global-color-factor) !default;
+$blockquote-padding:                   0 emCalc(20px) !default;
+$blockquote-border:                    5px solid #ddd !default;
+$blockquote-cite-font-size:            emCalc(13px) !default;
+$blockquote-cite-font-color:           $global-meta-color !default;
+$blockquote-cite-link-color:           $global-meta-color !default;
+
+// Acronym styles
+$abbr-underline:                       1px dotted #999 !default;
+$abbr-font-color:                      false !default;
+$abbr-initialism-weight:               false !default;
+
+//
+// Typography Placeholders
+//
+%lead {
+  font-size: emCalc($lead-font-size);
+  line-height: $lead-line-height;
+}
+
+%subheader {
+  color: $subheader-font-color;
+  font-weight: $subheader-font-weight;
+}
+
+
+/* Typography resets */
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+p,
+blockquote,
+th,
+td {
+  margin:0;
+  padding:0;
+}
+
+
+
+.muted        { color: $global-meta-color;    }
+.text-info    { color: $global-info-color;    }
+.text-success { color: $global-success-color; }
+.text-warning { color: $global-warning-color; }
+.text-danger  { color: $global-danger-color;  }
+
+
+
+/* Default paragraph styles */
+p {
+  text-rendering: $global-text-rendering;
+  margin-bottom: emCalc($vertical-rhythm/2);
+}
+
+/* Default header styles */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $header-font-weight;
+  font-style: $header-font-style;
+  text-rendering: $header-text-rendering;
+  line-height: $header-line-height - emCalc(3px);
+
+
+  // Optionals
+  @if $header-font-family != false { font-family: $header-font-family; }
+  @if $header-font-color  != false { color: $header-font-color; }
+  small {
+    color: $subheader-font-color;
+    line-height: 0;
+    font-weight: normal;
+  }
+}
+
+@if $header-small-uppercase != false {
+  h4, h5, h6 { text-transform: uppercase; }
+}
+
+h1 { font-size: emCalc($h1-font-size); margin: emCalc($vertical-rhythm/2,$h1-font-size) 0; }
+h2 { font-size: emCalc($h2-font-size); margin: emCalc($vertical-rhythm/2,$h2-font-size) 0; }
+h3 { font-size: emCalc($h3-font-size); margin: emCalc($vertical-rhythm/2,$h3-font-size) 0; }
+h4 { font-size: emCalc($h4-font-size); margin: emCalc($vertical-rhythm/2,$h4-font-size) 0; }
+h5 { font-size: emCalc($h5-font-size); margin: emCalc($vertical-rhythm/2,$h5-font-size) 0; }
+h6 { font-size: emCalc($h6-font-size); margin: emCalc($vertical-rhythm/2,$h6-font-size) 0; }
+
+
+// WIP
+//@mixin header($size){
+//  $rows-needs: ceil($size/$global-line-height);
+//  font-size: $size;
+//  font-size: emCalc($size);
+//  line-height: $global-line-height * $rows-needs;
+//  margin-bottom: $global-line-height;
+//}
+//h1 { @include header($h1-font-size); }
+//h2 { @include header($h2-font-size); }
+//h3 { @include header($h3-font-size); }
+//h4 { @include header($h4-font-size); }
+//h5 { @include header($h5-font-size); }
+//h6 { @include header($h6-font-size); }
+
+
+
+
+.subheader { @extend %subheader; }
+
+hr {
+  border: $hr-border-style $hr-border-color;
+  border-width: $hr-border-width 0 0;
+  clear: both;
+  margin: $vertical-rhythm 0 $vertical-rhythm - 1;
+  height: 0;
+}
+
+/* Helpful Typography Defaults */
+em, i {
+  font-style: italic;
+  line-height: inherit;
+}
+
+strong, b {
+  font-weight: bold;
+  line-height: inherit;
+}
+
+small {
+  font-size: $small-font-size;
+  line-height: inherit;
+}
+
+code {
+  font-family: $code-font-family;
+  font-weight: $code-font-weight;
+  color: $code-color;
+}
+
+/* Lists */
+ul,
+ol,
+dl {
+  margin-bottom: emCalc($vertical-rhythm) ;
+  list-style-position: $list-style-position;
+}
+
+/* Ordered and Unordered Lists */
+ol, ul {
+  margin-left: $list-side-margin;
+  li {
+    margin-bottom: $list-item-margin;
+  }
+  ol, ul {
+    margin-bottom: 0;
+    font-size: 1em; /* Override nested font-size change */
+  }
+  &.inline,
+  &.unstyled {
+    margin-left: 0;
+    list-style: none;
+  }
+  &.inline > li {
+    @include inline-block;
+    padding: $list-inline-item-padding;
+  }
+}
+
+/* Definition Lists */
+dl {
+  dt {
+    margin-bottom: $definition-list-header-margin-bottom;
+    font-weight: $definition-list-header-weight;
+  }
+  dd { margin-bottom: $definition-list-margin-bottom; }
+}
+
+/* Abbreviations */
+abbr {
+  text-transform: none;
+  cursor: help;
+  @if $abbr-font-color != false {
+    color: $abbr-font-color; }
+
+  &[title] {
+    border-bottom: $abbr-underline;
+  }
+  &.initialism {
+    font-size: 90%;
+    text-transform: uppercase;
+    @if $abbr-initialism-weight != false {
+    font-weight: $abbr-initialism-weight; }
+  }
+}
+
+
+/* Adress */
+address {
+  display: block;
+  margin-bottom: emCalc($vertical-rhythm/2);
+  font-style: normal;
+}
+
+
+/* Blockquotes */
+blockquote {
+  margin: 0 0 emCalc($vertical-rhythm,$lead-font-size);
+  padding: $blockquote-padding;
+  border-left: $blockquote-border;
+
+  cite {
+    display: block;
+    font-size: $blockquote-cite-font-size;
+    color: $blockquote-cite-font-color;
+    &:before { content: "\2014 \0020"; }
+
+    a,
+    a:visited {
+      color: $blockquote-cite-link-color;
+    }
+  }
+  &, p {
+    font-size: emCalc($blockquote-font-size);
+    color: $blockquote-font-color;
+  }
+  &.right {
+    text-align: right;
+    border-left: 0;
+    border-right: $blockquote-border;
+    cite {
+      &:after { content: "\0020 \2014"; }
+      &:before { content: ""; }
+    }
+  }
+  &.center {
+    text-align: center;
+    border-left: 0;
+  }
+}
+

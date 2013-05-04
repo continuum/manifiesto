@@ -1,0 +1,97 @@
+$global-font-size:   18px !default;
+$global-line-height: 24px !default;
+
+// This is the default html and body font-size for the base em value.
+$gutter:             $global-line-height;
+$vertical-rhythm:    $global-line-height;
+
+// Working in ems is annoying. Think in pixels by using this handy function, emCalc(#px)
+@function emCalc($pxWidth,$pxBase:$global-font-size) {
+  @return $pxWidth / $pxBase * 1em;
+}
+
+// We use these as default text colors throughout
+$global-theme-color:     #BF4231 !default;
+$global-dark-color:      #444444 !default;
+$global-light-color:     #FFFFFF !default;
+$global-link-color:      #2BA6CB !default;
+$global-meta-color:      lighten($global-dark-color,55%) !default;
+
+// We use these as default components colors throughout
+$global-default-color:   #E9E9E9 !default;
+$global-inverse-color:   #3F3F3F !default;
+$global-primary-color:   $global-theme-color !default;
+$global-info-color:      #52BCDC !default;
+$global-success-color:   #5DC25C !default;
+$global-warning-color:   #FCB23D !default;
+$global-danger-color:    #EC5B54 !default;
+
+$global-color-factor:    30%     !default;
+$global-hover-factor:    10%     !default;
+
+// We use these to control various global styles
+$global-background:      #F5F5F5 !default;
+$global-font-sans:       "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
+$global-font-serif:      Adobe Garamond Pro, Garamond, Georgia, "Times New Roman", Times, serif !default;
+$global-font-mono:       Monaco, Menlo, Consolas, "Courier New", monospace !default;
+//$global-font-mono:       Consolas, 'Liberation Mono', Courier, monospace !default;
+
+$global-font-family:     $global-font-serif !default;
+$global-font-weight:     normal !default;
+$global-font-style:      normal !default;
+$global-font-color:      $global-dark-color !default;
+
+$global-font-smoothing:  antialiased !default;
+$global-text-rendering:  optimizeLegibility !default;
+
+
+
+
+
+
+
+
+
+$size-smartphone:        320px !default;
+$size-middle:            768px !default;
+$size-tablet:           1024px !default;
+$size-small:            1280px !default;
+$size-medium:           1366px !default;
+$size-large:            1440px !default;
+$size-oversized:        1920px !default;
+
+$size-container:         960px !default;
+
+
+$portrait:              'and (orientation:portrait)';
+$landscape:             'and (orientation:landscape)';
+
+
+$from_smartphone:       'and (min-width: #{1 + $size-smartphone})';
+$from_middle:           'and (min-width: #{1 + $size-middle})';
+$from_tablet:           'and (min-width: #{1 + $size-tablet})';
+$from_small:            'and (min-width: #{1 + $size-small})';
+$from_medium:           'and (min-width: #{1 + $size-medium})';
+$from_large:            'and (min-width: #{1 + $size-large})';
+$from_oversized:        'and (min-width: #{1 + $size-oversized})';
+
+$from_container:        'and (min-width: #{1 + $size-container})';
+
+
+$to_smartphone:         'and (max-width: #{$size-smartphone})';
+$to_middle:             'and (max-width: #{$size-middle})';
+$to_tablet:             'and (max-width: #{$size-tablet})';
+$to_small:              'and (max-width: #{$size-small})';
+$to_medium:             'and (max-width: #{$size-medium})';
+$to_large:              'and (max-width: #{$size-large})';
+$to_oversized:          'and (max-width: #{$size-oversized})';
+
+$to_container:          'and (max-width: #{$size-container})';
+
+
+$smartphone_to_middle:  '#{$from_smartphone} #{$to_middle}';
+$middle_to_tablet:      '#{$from_middle}     #{$to_tablet}';
+$tablet_to_small:       '#{$from_tablet}     #{$to_small}';
+$small_to_medium:       '#{$from_small}      #{$to_medium}';
+$medium_to_large:       '#{$from_medium}     #{$to_large}';
+$large_to_oversized:    '#{$from_large}      #{$to_oversized}';

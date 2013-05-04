@@ -1,0 +1,155 @@
+$default-grid-id:                grid !default;
+$default-column-width:           140px !default;
+$default-column-count:           6 !default;
+$default-gutter-width:           20px !default;
+$default-vertical-rhythm:        24px !default;
+$default-grid-align:             center !default;
+$default-vertical-guide-color:   darkturquoise !default;
+$default-horizontal-guide-color: darkgray !default;
+
+@mixin hashgrid($gridId: $default-grid-id) {
+
+  // Grid
+  ##{$gridId} {
+
+    // General
+    &, .vert-container {
+      font-size: 0;
+      position: absolute;
+      top: 0;
+      overflow: hidden;
+    }
+    .vert-container {
+      left: 0;
+      right: 0;
+    }
+
+    // Reset Boxmodel
+    &, * {
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      box-sizing: content-box;
+    }
+
+    // Vertical grid lines
+    // Sets the column without taking the borders into consideration,
+    // use margins to set column gutters and outline for border
+    .vert{
+      display: -moz-inline-stack;
+      display: inline-block;
+      vertical-align: middle;
+      zoom: 1;
+      outline: 1px solid $default-vertical-guide-color;
+    }
+
+    // Horizontal grid lines, defined by your base line height
+    // Remember, the CSS properties that define the box model:
+    // visible height = height + borders + margins + padding
+    .horiz{
+      /* 20px line height */
+      height: $default-vertical-rhythm - 1px;
+      border-bottom: 1px dotted $default-horizontal-guide-color;
+      margin: 0;
+      padding: 0;
+    }
+
+    @content
+
+  }
+}
+
+
+//
+// Classes for multiple grids
+//
+// When using more than one grid, remember to set the numberOfGrids
+// option in the hashgrid.js file.
+//
+@mixin setgrid(
+  $griddNumber,
+  $columnWidth:    $default-column-width,
+  $columnCount:    $default-column-count,
+  $gutterWidth:    $default-gutter-width,
+  $verticalRhythm: $default-vertical-rhythm,
+  $gridAlign:      $default-grid-align,
+  $hGuideColor:    false,
+  $vGuideColor:    false
+){
+
+  $containerWidth: 0;
+  @if type-of($columnWidth) == list {
+    $i: 1;
+    $t: 0;
+    @while $i <= $columnCount {
+      $t: $t + nth($columnWidth,$i);
+      $i: $i + 1;
+    }
+    $columnTotalWidth: $t;
+    $containerWidth: ($columnCount * $gutterWidth) + $columnTotalWidth + $gutterWidth;
+  }@else {
+    $containerWidth: (($columnWidth + $gutterWidth) * $columnCount) + $gutterWidth;
+  }
+
+  &.grid-#{$griddNumber} {
+
+    width: $containerWidth;
+
+    // Alignment
+    @if      $gridAlign == center { left: 50%; margin-left: -$containerWidth/2; }
+    @else if $gridAlign == left   { left: 0; }
+    @else if $gridAlign == right  { right: 0; }
+
+    .vert{
+      @if $vGuideColor != false { outline-color: $vGuideColor; }
+      margin-right: $gutterWidth;
+      @if type-of($columnWidth) == list {
+        @for $col from 1 through length($columnWidth) {
+          &:nth-child(#{$col}) {
+            width: nth($columnWidth,$col);
+          }
+        }
+      }@else {
+        width: $columnWidth;
+      }
+      &.first-line{ margin-left: $gutterWidth; }
+    }
+    .horiz {
+      height: $verticalRhythm - 1px;
+      @if $hGuideColor != false { outline-color: $hGuideColor; }
+    }
+
+  }
+}
+
+
+
+$default-grid-id:                grid;
+$default-column-width:           1000px;
+$default-column-count:           12;
+$default-gutter-width:           20px;
+$default-vertical-rhythm:        $base-line-height;
+$default-grid-align:             center;
+$default-vertical-guide-color:   transparent;
+$default-horizontal-guide-color: darkgray;
+
+@include hashgrid {
+  @include setgrid(
+    $griddNumber:    1
+  //$columnWidth:    $default-column-width,
+  //$columnCount:    $default-column-count,
+  //$gutterWidth:    $default-gutter-width,
+  //$verticalRhythm: $default-vertical-rhythm,
+  //$gridAlign:      $default-grid-align,
+  //$hGuideColor:    false,
+  //$vGuideColor:    false
+  );
+}
+
+//#grid.grid-1 {
+//  margin-left: 0;
+//  left: auto;
+//  width: 100%;
+//}
+
+
+
