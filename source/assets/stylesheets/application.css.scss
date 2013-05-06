@@ -333,6 +333,7 @@ nav {
   li {
     @include inline-block;
     padding: 10px;
+    width: 25%;
     @media screen #{$to_smartphone} {
       width: 100%;
     }
