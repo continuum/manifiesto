@@ -9,9 +9,12 @@ $(document).ready(function() {
     $('body').toggleClass('open');
   });
 
-  $('#share').attr('href',
-                   'https://twitter.com/share?url=' +
-                   encodeURIComponent(location.href) +
-                   '&text=' +
-                   encodeURIComponent(document.title));
+  $('#share').
+    attr('href',
+         'https://twitter.com/share?url=' + encodeURIComponent(location.href) +
+         '&text=' + encodeURIComponent(document.title)).
+    attr('target', '_blank').
+    click(function() {
+      ga('send', 'share', 'button', 'click', 'twitter', 1);
+    });
 });
