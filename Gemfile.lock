@@ -111,3 +111,4 @@ DEPENDENCIES
   middleman
   middleman-gh-pages
   oily_png
+  rake
