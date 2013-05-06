@@ -12,9 +12,10 @@ end
 
 
 # Default encoding
-# Encoding.default_external = 'utf-8'
+
 set :default_encoding, 'utf-8'
 
+Encoding.default_external = 'utf-8' if Object.const_defined?(:Encoding)
 
 # For physical directories at development mode
 set :images_dir,  "assets/images"
