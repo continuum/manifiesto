@@ -238,15 +238,17 @@ nav {
   a {
     @include inline-block;
     @include border-radius(100px);
-    background-color: #222;
     padding: 10px 20px;
     font-weight: bold;
     text-decoration: none;
     color: #DDD;
     font-size: 16px;
-    &:hover {
-      background-color: lighten(#222,5%);
-      color: lighten(#DDD,10%);
+    .no-touch & {
+      @include single-transition(background, 250ms);
+      background-color: #222;
+      &:hover {
+        background-color: $global-theme-color;
+      }
     }
   }
   i {
