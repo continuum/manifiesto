@@ -311,10 +311,55 @@ nav {
 
 
 
+.gridview {
+  width: 100%;
+  max-width: 100%;
+  background-color: #EBEBEB;
+  border-top: 1px solid #DDDDDD;
+  margin-top: 5em;
+  padding: 0;
 
-
-
-
-
+  ol, li {
+    padding: 0;
+    margin: 0;
+  }
+  ol {
+    @include clearfix;
+    list-style: none;
+    font-size: 0;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  li {
+    @include inline-block;
+    padding: 10px;
+    @media screen #{$to_smartphone} {
+      width: 100%;
+    }
+    @media screen #{$from_smartphone} {
+      width: 50%;
+    }
+    @media screen #{$from_middle} {
+      width: 33.3%;
+    }
+    @media screen #{$from_small} {
+      width: 25%;
+    }
+  }
+  a {
+    padding: 20px 0;
+    display: block;
+    text-align: center;
+    .no-touch & {
+      @include single-transition(background, 250ms);
+      background-color: #EBEBEB;
+      &:hover {
+        background-color: #F1F1F1;
+      }
+    }
+  }
+  span { display: none; }
+  img { width: 50%; }
+}
 
 
