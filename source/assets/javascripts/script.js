@@ -15,6 +15,15 @@ $(document).ready(function() {
          '&text=Únete al ' + encodeURIComponent(document.title) + ' en: ').
     attr('target', '_blank').
     click(function() {
-      ga('send', 'share', 'button', 'click', 'twitter', 1);
+      ga('send', 'event', 'share', 'button', 'click', 'twitter', 1);
     });
+
+
+    $('#gridview a').click(function() {
+      var company_name = $(this).find('span').text(),
+          event_name   = (company_name != 'Únete') ? "company": "join";
+
+      ga('send', 'event', event_name, 'click', company_name, 1);
+    });
+
 });

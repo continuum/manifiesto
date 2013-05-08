@@ -48,7 +48,7 @@ nav ,
 #open_nav,
 .head,
 header p,
-.gridview {
+#gridview {
   @include user-select(none);
 }
 
@@ -314,7 +314,7 @@ nav {
 
 
 
-.gridview {
+#gridview {
   width: 100%;
   max-width: 100%;
   background-color: #EBEBEB;
