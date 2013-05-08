@@ -12,7 +12,7 @@ $(document).ready(function() {
   $('#share').
     attr('href',
          'https://twitter.com/share?url=' + encodeURIComponent(location.href) +
-         '&text=' + encodeURIComponent(document.title)).
+         '&text=Únete al ' + encodeURIComponent(document.title) + ' en: ').
     attr('target', '_blank').
     click(function() {
       ga('send', 'share', 'button', 'click', 'twitter', 1);
