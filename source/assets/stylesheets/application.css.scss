@@ -47,7 +47,8 @@
 nav ,
 #open_nav,
 .head,
-header p, {
+header p,
+.gridview {
   @include user-select(none);
 }
 
